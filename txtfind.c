@@ -2,6 +2,7 @@
 #include <string.h>
 #include "txtfind.h"
 #define LINE_SIZE 256
+#define MAX_LINE_SIZE 250
 
 // option 1
 
@@ -70,9 +71,12 @@ void words_part(char* string, char* word) {
         // end word
         if(string[i] == ' ' || string[i] == '\n') {
 
+            // delete '\n' new line from the word
+            strtok(temp, "\n");
+
             // check if the word contains the word partly
             words_check(temp, word);
-
+            
             // make temp be empty again
             memset(temp, 0, strlen(temp));
             strcpy(temp, empty_line);
@@ -84,6 +88,7 @@ void words_part(char* string, char* word) {
 }
 
 void words_check(char* string, char* word) {
+    printf("1");
     int count = 0;
     for(int i = 0, k = 0; string[i] != 0; i++) {
         if(string[i] == word[k]) {
@@ -91,7 +96,70 @@ void words_check(char* string, char* word) {
             k++;
         }
     }
-    if(count >= 2) {
-        printf("\nword: %s", string);
+    if(count >= strlen(word) - 1) {
+        printf("%s\n", string);
     }
+}
+
+// function that do nothing
+void doNothing(char* string) {}
+
+int main(int argc, char const *argv[]) {
+
+    // empty line
+    const char empty_line[LINE_SIZE] = "";
+
+    // the word in the text
+    char word[LINE_SIZE];
+
+    // option is 'a' or 'b' that get from the text
+    char option[1];
+
+    int i = 0;
+    while(i < MAX_LINE_SIZE) {
+
+        // getting every line seperate
+        char line[LINE_SIZE];
+        fgets(line, LINE_SIZE, stdin);
+
+        // first line
+        if(i == 0) {
+
+            memset(word, 0, strlen(word));
+            strcpy(word, empty_line);
+
+            //printf("\n%d\n",count);
+            for(int j = 0; j < strlen(line) - 4; ++j) {
+                word[j] = line[j];
+            }
+            option[0] = line[strlen(line) - 3];
+
+        } else {
+            
+            // option a
+            if(option[0] == 'a') {
+                lines_check(line, word);
+                
+            // option b
+            } else if(option[0] == 'b') {
+                words_part(line, word);
+            }
+        }
+
+        // for ignore warning that option is not been used in his main scope
+        doNothing(option);
+
+        // end of text
+        if(line[0] == '\0' && i > 2) {
+            printf("\n");
+            break;
+        }
+
+        // make line empty for the next line
+        memset(line, 0, strlen(line));
+        strcpy(line, empty_line);
+        i++;
+    }
+
+    return 0;
 }

@@ -9,4 +9,6 @@ void lines_check(char* string, char* word);
 void words_part(char* string, char* word);
 void words_check(char* string, char* word);
 
+void doNothing(char* string);
+
 #endif // ISORT_H
