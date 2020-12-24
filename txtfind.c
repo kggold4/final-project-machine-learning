@@ -104,7 +104,7 @@ void words_check(char* string, char* word) {
 // function that do nothing
 void doNothing(char* string) {}
 
-int main(int argc, char const *argv[]) {
+int main() {
 
     // empty line
     const char empty_line[LINE_SIZE] = "";

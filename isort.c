@@ -36,14 +36,14 @@ void print_array(int* arr, int len) {
 }
 
 // main function of isort
-int main(int argc, char const *argv[]) {
+int main() {
 
     // getting from the user N integer to arr array
     int arr[N], i = 0;
     while(i < N) {
         int input;
         scanf("%d", &input);
-        arr[i] = input;
+        *(arr + i) = input;
         ++i;
     }
 
