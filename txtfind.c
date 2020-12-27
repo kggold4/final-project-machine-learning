@@ -88,7 +88,7 @@ void words_part(char* string, char* word) {
 }
 
 void words_check(char* string, char* word) {
-    printf("1");
+    
     int count = 0;
     for(int i = 0, k = 0; string[i] != 0; i++) {
         if(string[i] == word[k]) {
@@ -122,7 +122,7 @@ int main() {
         char line[LINE_SIZE];
         fgets(line, LINE_SIZE, stdin);
 
-        // first line
+        // getting information from the first line
         if(i == 0) {
 
             memset(word, 0, strlen(word));
