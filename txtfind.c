@@ -55,10 +55,10 @@ void lines_check(char* string, char* word) {
 void words_part(char* string, char* word) {
 
     // create temporery sting for each line in string
-    char temp[256];
+    char temp[LINE_SIZE];
 
     // empty constant line for strcpy after reading a line
-    const char empty_line[256] = "";
+    const char empty_line[LINE_SIZE] = "";
 
     // index fot insert chars to temp
     int k = 0;
