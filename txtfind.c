@@ -84,7 +84,7 @@ void words_part(char* string, char* word) {
         }
     }
     // for the last word (not reach in the for loop)
-    words_check(temp, word);
+    //words_check(temp, word);
 }
 
 void words_check(char* string, char* word) {
