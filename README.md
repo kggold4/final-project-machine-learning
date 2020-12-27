@@ -75,5 +75,4 @@ cats
 cats
 crat
 lcat
-caats
 ```
