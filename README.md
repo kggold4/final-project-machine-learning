@@ -45,19 +45,10 @@ Features:
 19. time_signature.
 20. valence (Ranges from 0 to 1).
 
-* NOTE: during the ordering of the data we applay the popularity for classification to be in the following format:
+### NOTE: during the ordering of the data we applay the popularity for classification to be in the following format:
 
-
-|  class  |     real value      |  class value  |
-|----------|:-------------:|------:|
-| high popular |  70 <= x | 2 |
-| medium popular |    40 <= x < 70   |   1 |
-| non popular | x < 40 |    0 |
-
-<br>if <= 70 popularity             -       value: 2
-<br>else if 40 <= popularity < 70   -     value: 1
-<br>else, popularity < 40           -        value: 0
-
-$$
-5 <= x < 4
-$$
+| class          | real value   | class value |
+|----------------|:------------:|------------:|
+| high popular   | 70 <= x      | 2           |
+| medium popular | 40 <= x < 70 | 1           |
+| non popular    | x < 40       | 0           |
