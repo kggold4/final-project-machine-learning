@@ -30,8 +30,33 @@ def get_date_times(dates: List[str]) -> List[datetime]:
         elif len(release_date.split('-')) == 3:
             release_dates.append(datetime.strptime(release_date, '%Y-%m-%d'))
         else:
-            print(f"Cannot get datetime from {release_dates}")
+            print(f"Cannot get datetime from {release_date}")
     return release_dates
+
+
+def get_years(dates: List[str]) -> List[str]:
+    """
+    Function that get a list of string dates and return the same list each date only the year.
+    Each date string can be in following formats:
+    1. <year>
+    2. <year>-<month>
+    3. <year>-<month>-<day>
+
+    for example:
+    >>> example_datetimes = ['2007', '2002-6', '2000-2-22']
+    >>> get_years(example_datetimes)[0]
+    '2007'
+
+    >>> get_years(example_datetimes)[1]
+    '2002'
+
+    >>> get_years(example_datetimes)[2]
+    '2000'
+
+    """
+    release_dates = get_date_times(dates)
+    return [str(year.year) for year in release_dates]
+
 
 def apply_popularity(popularity: int) -> int:
     """
@@ -66,6 +91,7 @@ def apply_popularity(popularity: int) -> int:
         return 1
     else:
         return 0
+
 
 if __name__ == "__main__":
     import doctest
