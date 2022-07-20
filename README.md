@@ -52,3 +52,12 @@ Features:
 | high popular   | 70 <= x      | 2           |
 | medium popular | 40 <= x < 70 | 1           |
 | non popular    | x < 40       | 0           |
+
+## Models result:
+
+| model                 | accuracy |
+|-----------------------|---------:|
+| KNeighbors Classifier | 74.20 %  |
+| Logistic Regression   | 72.32 %  |
+| XGB Classifier        | 77.74 %  |
+| MLP Classifier        | 70.82 %  |
