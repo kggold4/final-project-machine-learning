@@ -61,3 +61,7 @@ Features:
 | Logistic Regression   | 72.32 %  |
 | XGB Classifier        | 77.74 %  |
 | MLP Classifier        | 70.82 %  |
+
+## Models result between regular and balanced data trained (shown in the notebook)
+
+![results](images/results.png)
