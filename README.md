@@ -5,6 +5,7 @@ By:
 [@TalSomech](https://www.github.com/TalSomech)
 
 > Spotify dataset classification
+> Mark = 96
 
 <img alt="spotify-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/2048px-Spotify_logo_without_text.svg.png" width="30" height="30">
 
