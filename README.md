@@ -12,11 +12,12 @@ By:
 
 ## Code
 
-Our main project is in the ```spotify_classification.ipynb``` notebook, also see the ```utils.py``` file (for our utils functions).
+Our main project is in the `spotify_classification.ipynb` notebook, also see the `utils.py` file (for our utils functions).
 
 ## Goal
 
 The goal of this project is to train machine learning models (supervised) that will classified the popularity of a spotify song to three classes:
+
 1. high popular
 2. medium popular
 3. non popular
@@ -24,6 +25,7 @@ The goal of this project is to train machine learning models (supervised) that w
 ## Dataset:
 
 Features:
+
 1. acousticness (Ranges from 0 to 1)
 2. artists (List of artists mentioned)
 3. danceability (Ranges from 0 to 1)
@@ -45,23 +47,44 @@ Features:
 19. time_signature.
 20. valence (Ranges from 0 to 1).
 
+### Correlations between popularity and others features
+
+![correlations](images/correlations.png)
+
 ### NOTE: during the ordering of the data we applay the popularity for classification to be in the following format:
 
-| class          | real value   | class value |
-|----------------|:------------:|------------:|
-| high popular   | 70 <= x      | 2           |
-| medium popular | 40 <= x < 70 | 1           |
-| non popular    | x < 40       | 0           |
+| class          |  real value  | class value |
+| -------------- | :----------: | ----------: |
+| high popular   |   70 <= x    |           2 |
+| medium popular | 40 <= x < 70 |           1 |
+| non popular    |    x < 40    |           0 |
 
-## Models result:
+### In order to see the distribution between the number of popularitry classes (unbalanced number of features in data):
+
+![pie](images/pie.png)
+
+## Models result (unbalanced number of features in data):
 
 | model                 | accuracy |
-|-----------------------|---------:|
-| KNeighbors Classifier | 74.20 %  |
-| Logistic Regression   | 72.32 %  |
-| XGB Classifier        | 77.74 %  |
-| MLP Classifier        | 70.82 %  |
+| --------------------- | -------: |
+| KNeighbors Classifier |  74.20 % |
+| Logistic Regression   |  72.32 % |
+| XGB Classifier        |  77.74 % |
+| MLP Classifier        |  70.82 % |
+
+## Models result (balanced number of features in data):
+
+| model                 | accuracy |
+| --------------------- | -------: |
+| KNeighbors Classifier |  59.35 % |
+| Logistic Regression   |  60.06 % |
+| XGB Classifier        |  65.41 % |
+| MLP Classifier        |  64.16 % |
 
 ## Models result between regular and balanced data trained (shown in the notebook):
 
 ![results](images/results.png)
+
+## Conclusions:
+
+It's very difficult to precdict popularity of spotify tracks with the data we have in our data set, Even after we cleaned & normalized our data, and creation balanced and non-balanced training data for our models, We still see that the accuracy of our models is moderate.
